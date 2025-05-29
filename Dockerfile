@@ -1,11 +1,17 @@
-# Use the official Python image as the base image
-FROM python:3.9
- 
-# Set the working directory in the container
+# Dockerfile
+FROM python:3.9-slim
+
+# Set the working directory
 WORKDIR /app
- 
-# Copy the Python dependencies file to the container
-COPY requirements.txt .
- 
-# Install the Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the app code to the container
+COPY app.py .
+
+# Install Flask
+RUN pip install flask
+
+# Expose the port
+EXPOSE 80
+
+# Run the application
+CMD ["python", "app.py"]
