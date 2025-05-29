@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Route to the root URL
 @app.route('/')
 def hello():
-    return 'Hello, Flask on Docker!'
+    return 'Hello, Flask from Docker!'
  
 # Route to a custom endpoint
 @app.route('/greet/<name>')
@@ -15,7 +15,7 @@ def greet(name):
     return f'Hello, {name}! Welcome to Flask on Docker.'
  
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=5000)
  
 # Copy the Flask application code to the container
 COPY app.py .
